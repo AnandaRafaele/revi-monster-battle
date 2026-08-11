@@ -149,7 +149,3 @@ location.reload()
 ## Spec-driven process
 
 Lightweight Spec Kit–style artifacts live in `specs/` (`constitution.md`, feature `spec.md` / `plan.md`). The README remains the human entry point for reviewers.
-
-## 90-second pitch
-
-> I kept the Revi scope front-only, but structured it like production: Clean Architecture with a repository Adapter so localStorage can become HTTP without touching `BattleEngine`. Battles are fully computed in one synchronous pass — the Motion UI only replays the rounds. Zod validates at the border; Zustand holds selection. Lazy routes/media and a Lighthouse script show how I’d measure and gate quality without inventing a backend. Creativity is intentional UX (bright arena + Lottie + replay), not extra complexity.
