@@ -1,0 +1,150 @@
+@import 'tailwindcss';
+
+:root {
+  --sky-top: #7ec8f8;
+  --sky-mid: #b8e0f7;
+  --grass: #7cb342;
+  --grass-deep: #558b2f;
+  --gold: #f0a202;
+  --gold-deep: #c47f00;
+  --wood: #5b3a1a;
+  --cream: #fff6e0;
+  --ink: #1f4d2e;
+  --muted: #3d4f3f;
+  font-family: 'Nunito', system-ui, sans-serif;
+  color: var(--muted);
+  background: var(--sky-mid);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: 'Fredoka', 'Nunito', system-ui, sans-serif;
+}
+
+.app-shell {
+  background:
+    radial-gradient(ellipse 80% 40% at 50% -10%, #ffffff88, transparent),
+    linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 38%, #d7f0a3 72%, var(--grass) 100%);
+  background-attachment: fixed;
+}
+
+.hero-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 3px solid color-mix(in srgb, var(--wood) 35%, transparent);
+  border-radius: 1.5rem;
+  background: color-mix(in srgb, var(--cream) 92%, white);
+  box-shadow: 0 8px 0 color-mix(in srgb, var(--wood) 25%, transparent);
+  padding: 1.25rem 1.5rem;
+}
+
+.troop-card {
+  border: 3px solid color-mix(in srgb, var(--wood) 40%, transparent);
+  border-radius: 1.25rem;
+  background: color-mix(in srgb, var(--cream) 95%, white);
+  box-shadow: 0 6px 0 color-mix(in srgb, var(--wood) 22%, transparent);
+  padding: 1rem;
+}
+
+.troop-card-selected {
+  border-color: var(--gold-deep);
+  box-shadow: 0 6px 0 var(--gold-deep);
+  background: #fff3c4;
+}
+
+.stat-chip {
+  border-radius: 0.75rem;
+  background: #e8f5c8;
+  border: 2px solid color-mix(in srgb, var(--grass-deep) 35%, transparent);
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+}
+
+.chunky-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 2px solid var(--wood);
+  padding: 0.45rem 0.95rem;
+  font-family: 'Fredoka', 'Nunito', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--wood) 55%, black);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.chunky-btn:hover {
+  transform: translateY(-1px);
+}
+
+.chunky-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--wood) 55%, black);
+}
+
+.chunky-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.chunky-btn-gold {
+  background: linear-gradient(180deg, #ffd56a, var(--gold));
+  color: #3b2208;
+}
+
+.chunky-btn-sky {
+  background: linear-gradient(180deg, #9ad7ff, #4fa3d8);
+  color: #08324a;
+}
+
+.chunky-btn-ghost {
+  background: #fffaf0;
+  color: var(--ink);
+}
+
+.chunky-btn-danger {
+  background: linear-gradient(180deg, #ffb4a2, #e76f51);
+  color: #3b1208;
+}
+
+.field-input {
+  width: 100%;
+  border-radius: 0.9rem;
+  border: 2px solid color-mix(in srgb, var(--wood) 35%, transparent);
+  background: #fffdf7;
+  padding: 0.65rem 0.85rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.field-input:focus {
+  outline: 3px solid color-mix(in srgb, var(--gold) 55%, white);
+  outline-offset: 1px;
+}
+
+/* Keep DotLottie canvas inside the media frame (some comps paint oversized). */
+.monster-media canvas,
+.monster-media svg {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chunky-btn {
+    transition: none;
+  }
+}
