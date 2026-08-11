@@ -80,6 +80,15 @@ Requires **Google Chrome**. Reports are gitignored (`lighthouse-reports/`, Trace
 
 This is **separate from Vitest** — unit tests cover battle math; Lighthouse automates Perf / A11y / Best Practices / SEO on a production preview.
 
+Verified desktop scores (`npm run lighthouse` on production preview):
+
+| Route | Perf | A11y | Best Practices | SEO |
+|-------|------|------|----------------|-----|
+| `/` (home) | 99 | 100 | 100 | 82 |
+| `/battle` | 100 | 100 | 100 | 82 |
+
+Re-run the script anytime to refresh these numbers.
+
 ## Stack decisions
 
 | Choice | Why |
