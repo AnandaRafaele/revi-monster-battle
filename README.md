@@ -80,27 +80,18 @@ Requires **Google Chrome**. Reports are gitignored (`lighthouse-reports/`, Trace
 
 This is **separate from Vitest** — unit tests cover battle math; Lighthouse automates Perf / A11y / Best Practices / SEO on a production preview.
 
-Verified desktop scores via `npm run lighthouse` (production preview):
-
-| Route | Perf | A11y | Best Practices | SEO |
-|-------|------|------|----------------|-----|
-| `/` (home) | 99 | 100 | 100 | 82 |
-| `/battle` | 100 | 100 | 100 | 82 |
-
-home: FCP 0.6s · LCP 0.9s · TBT 0ms · CLS 0.005 · battle: FCP 0.5s · LCP 0.8s · TBT 0ms · CLS 0. Home A11y was ~90 before the aria/`dl` fixes above; after fixes it is **100**. Perf ~99–100 is expected run-to-run variance — don’t treat 100 as fixed. SEO 82 is typical for an SPA (meta/crawl). Re-run `npm run lighthouse` for current numbers. Main weight is DotLottie WASM; runtime hot path is Lottie `_draw`, not `BattleEngine`.
-
-## Stack decisions (interview-ready)
+## Stack decisions
 
 | Choice | Why |
 |--------|-----|
 | Vite | Fast ESM DX vs CRA |
 | Zustand | Small global state (roster selection + last battle); Redux would be overkill |
 | Zod | One schema → runtime validation + `z.infer` types at the form border |
-| Tailwind | Fast, consistent UI in a short deadline |
+| Tailwind | Utility-first styling for a consistent UI under a short deadline |
 | Motion | Intentional battle replay / transitions — math stays sync |
 | Lottie | Animated seed portraits; `image_url` remains a URL string |
-| Vitest | Quality on the deterministic core (not required by the brief) |
-| Lighthouse script | Repeatable Perf/A11y metrics on `preview` — not e2e |
+| Vitest | Focused tests on the deterministic combat core |
+| Lighthouse script | Repeatable Perf/A11y metrics on production `preview` |
 | React.lazy + chunks | Smaller initial JS; Motion/Lottie split via `manualChunks` |
 | React Router | Clear flows: roster / form / battle / history |
 | localStorage | Persistence aligned with “no backend” (monsters + battle history) |
@@ -148,4 +139,4 @@ location.reload()
 
 ## Spec-driven process
 
-Lightweight Spec Kit–style artifacts live in `specs/` (`constitution.md`, feature `spec.md` / `plan.md`). The README remains the human entry point for reviewers.
+Lightweight Spec Kit–style artifacts live in `specs/` (`constitution.md`, feature `spec.md` / `plan.md`).

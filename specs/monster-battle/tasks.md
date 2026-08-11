@@ -9,4 +9,4 @@
 - [x] Route + media lazy loading; Vite `manualChunks` (motion / lottie)
 - [x] A11y: MonsterMedia labels + MonsterCard description list stats
 - [x] Lighthouse automation script (`npm run lighthouse`)
-- [x] README + prep sync
+- [x] README + specs
